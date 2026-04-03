@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <style>
+    /* ===== CSS変数 ===== */
+    :root {
+      --navy:       #0D1B2A;
+      --navy-mid:   #1A2F4A;
+      --navy-light: #243B55;
+      --gold:       #C9A84C;
+      --gold-light: #E8C876;
+      --white:      #FFFFFF;
+      --off-white:  #F4F6F9;
+      --text:       #1C2B3A;
+      --text-light: #4A5C6E;
+      --border:     #D0D9E3;
+      --accent-bg:  #EAF0F7;
+    }
+
+    /* ===== ページ設定（WeasyPrint用） ===== */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    @page :first {
+      margin: 0;
+    }
+
+    /* ===== フォント ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      font-size: 10pt;
+      line-height: 1.8;
+    }
+
+    /* ===== 表紙 ===== */
+    .cover-page {
+      width: 210mm;
+      height: 297mm;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    /* 装飾：右上の円 */
+    .cover-page::before {
+      content: '';
+      position: absolute;
+      top: -60mm;
+      right: -40mm;
+      width: 160mm;
+      height: 160mm;
+      border-radius: 50%;
+      background: var(--navy-light);
+      opacity: 0.5;
+    }
+
+    /* 装飾：左下の円 */
+    .cover-page::after {
+      content: '';
+      position: absolute;
+      bottom: -50mm;
+      left: -30mm;
+      width: 120mm;
+      height: 120mm;
+      border-radius: 50%;
+      background: var(--navy-mid);
+      opacity: 0.6;
+    }
+
+    .cover-header {
+      padding: 12mm 14mm 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      z-index: 10;
+    }
+
+    .cover-brand {
+      font-size: 9pt;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .cover-date {
+      font-size: 8.5pt;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .cover-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 14mm;
+      position: relative;
+      z-index: 10;
+    }
+
+    .cover-gold-line {
+      width: 14mm;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 8mm;
+    }
+
+    .cover-industry-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 1.5mm 4mm;
+      border-radius: 2px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6mm;
+    }
+
+    .cover-title {
+      font-family: 'Noto Serif JP', 'Inter', serif;
+      font-size: 22pt;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.35;
+      margin-bottom: 5mm;
+      word-break: break-word;
+    }
+
+    .cover-subtitle {
+      font-size: 10pt;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+      margin-bottom: 10mm;
+    }
+
+    .cover-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm;
+      margin-top: 4mm;
+    }
+
+    .cover-meta-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 3px;
+      padding: 3mm 4mm;
+    }
+
+    .cover-meta-label {
+      font-size: 7pt;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1mm;
+    }
+
+    .cover-meta-value {
+      font-size: 9pt;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .cover-keywords {
+      margin-top: 8mm;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2mm;
+    }
+
+    .cover-keyword {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 1.5mm 3.5mm;
+      font-size: 7.5pt;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .cover-footer {
+      padding: 6mm 14mm;
+      border-top: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .cover-footer-brand {
+      font-size: 8pt;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .cover-footer-note {
+      font-size: 7.5pt;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ===== 本文ページ ===== */
+    .content-pages {
+      width: 210mm;
+      padding: 0;
+    }
+
+    /* ページヘッダー（各セクションの上部バー） */
+    .page-header-bar {
+      background: var(--navy);
+      height: 12mm;
+      display: flex;
+      align-items: center;
+      padding: 0 14mm;
+      justify-content: space-between;
+    }
+
+    .page-header-title {
+      font-size: 7.5pt;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .page-header-date {
+      font-size: 7.5pt;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* コンテンツエリア */
+    .content-area {
+      padding: 10mm 14mm;
+    }
+
+    /* ===== セクション ===== */
+    .section {
+      margin-bottom: 10mm;
+      page-break-inside: avoid;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5mm;
+      padding-bottom: 3mm;
+      border-bottom: 2px solid var(--navy);
+    }
+
+    .section-number {
+      background: var(--navy);
+      color: var(--gold);
+      font-size: 7pt;
+      font-weight: 700;
+      padding: 1mm 3mm;
+      border-radius: 2px;
+      margin-right: 3mm;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--navy);
+      font-family: 'Noto Serif JP', 'Inter', serif;
+    }
+
+    .section-title-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--navy), transparent);
+      margin-left: 4mm;
+    }
+
+    /* エグゼクティブサマリーボックス */
+    .executive-box {
+      background: var(--navy);
+      border-radius: 4px;
+      padding: 8mm 10mm;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .executive-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gold);
+    }
+
+    .executive-box p {
+      color: var(--white);
+      font-size: 10pt;
+      line-height: 1.9;
+    }
+
+    /* テキストブロック */
+    .text-block {
+      color: var(--text);
+      font-size: 9.5pt;
+      line-height: 1.85;
+      text-align: justify;
+    }
+
+    .text-block p {
+      margin-bottom: 3mm;
+    }
+
+    /* 今後の展望セクション */
+    .outlook-box {
+      background: var(--accent-bg);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 4px 4px 0;
+      padding: 6mm 8mm;
+    }
+
+    .outlook-box p {
+      font-size: 9.5pt;
+      line-height: 1.85;
+      color: var(--text);
+    }
+
+    /* 免責事項 */
+    .disclaimer-section {
+      margin-top: 8mm;
+      padding: 5mm 7mm;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      page-break-inside: avoid;
+    }
+
+    .disclaimer-title {
+      font-size: 8pt;
+      font-weight: 700;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2mm;
+    }
+
+    .disclaimer-text {
+      font-size: 7.5pt;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ページフッター */
+    .page-footer {
+      background: var(--navy);
+      height: 8mm;
+      display: flex;
+      align-items: center;
+      padding: 0 14mm;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
+    .page-footer-brand {
+      font-size: 7pt;
+      color: var(--gold);
+    }
+
+    .page-footer-note {
+      font-size: 7pt;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* 段落改行の自動変換用 */
+    .auto-paragraphs p {
+      margin-bottom: 3mm;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== 表紙 ===== -->
+<div class="cover-page">
+  <div class="cover-header">
+    <div class="cover-brand">Southeast Asia Market Insights</div>
+    <div class="cover-date">{{ report_date }}</div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-gold-line"></div>
+    <div class="cover-industry-tag">{{ industry }}</div>
+    <h1 class="cover-title">{{ title }}</h1>
+    <p class="cover-subtitle">{{ subtitle }}</p>
+
+    <div class="cover-meta-grid">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">{% if lang == 'ja' %}対象地域{% else %}Region{% endif %}</div>
+        <div class="cover-meta-value">{{ country }}</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">{% if lang == 'ja' %}業界{% else %}Industry{% endif %}</div>
+        <div class="cover-meta-value">{{ industry }}</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">{% if lang == 'ja' %}形式{% else %}Format{% endif %}</div>
+        <div class="cover-meta-value">{{ format_type }}</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">{% if lang == 'ja' %}発行日{% else %}Published{% endif %}</div>
+        <div class="cover-meta-value">{{ report_date }}</div>
+      </div>
+    </div>
+
+    {% if keywords %}
+    <div class="cover-keywords">
+      {% for kw in keywords %}
+      <span class="cover-keyword"># {{ kw }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-footer-brand">{{ footer_text }}</div>
+    <div class="cover-footer-note">{{ confidential_text }}</div>
+  </div>
+</div>
+
+<!-- ===== 本文 ===== -->
+<div class="content-pages">
+
+  <!-- ページヘッダー -->
+  <div class="page-header-bar">
+    <div class="page-header-title">{{ footer_text }}</div>
+    <div class="page-header-date">{{ report_date }}</div>
+  </div>
+
+  <div class="content-area">
+
+    <!-- エグゼクティブサマリー -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <span class="section-title">{{ label_executive_summary }}</span>
+        <div class="section-title-line"></div>
+      </div>
+      <div class="executive-box">
+        {% for para in executive_summary.split('\n') %}
+          {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- 市場概況 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <span class="section-title">{{ label_market_overview }}</span>
+        <div class="section-title-line"></div>
+      </div>
+      <div class="text-block">
+        {% for para in market_overview.split('\n') %}
+          {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- 詳細分析 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <span class="section-title">{{ label_detailed_analysis }}</span>
+        <div class="section-title-line"></div>
+      </div>
+      <div class="text-block">
+        {% for para in detailed_analysis.split('\n') %}
+          {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- 今後の展望 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <span class="section-title">{{ label_future_outlook }}</span>
+        <div class="section-title-line"></div>
+      </div>
+      <div class="outlook-box">
+        {% for para in future_outlook.split('\n') %}
+          {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- 免責事項 -->
+    <div class="disclaimer-section">
+      <div class="disclaimer-title">{{ label_disclaimer }}</div>
+      <div class="disclaimer-text">{{ disclaimer }}</div>
+    </div>
+
+  </div><!-- /content-area -->
+
+  <!-- ページフッター -->
+  <div class="page-footer">
+    <div class="page-footer-brand">{{ footer_text }}</div>
+    <div class="page-footer-note">{{ confidential_text }}</div>
+  </div>
+
+</div><!-- /content-pages -->
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+{
+  "language": "en",
+  "report_title": "Japan Cloud Infrastructure\nMarket Report 2026",
+  "report_title_short": "Japan Cloud Infrastructure Market 2026",
+  "report_subtitle": "Key Players, Growth Forecasts & Strategic Implications",
+  "report_category": "Market Research Report",
+  "report_date": "April 3, 2026",
+  "report_author": "Research Department, Analytics Team",
+  "report_version": "Version 1.0",
+  "organization_name": "YOUR ORGANIZATION",
+
+  "label_date": "Published",
+  "label_author": "Author",
+  "label_version": "Version",
+  "label_key_finding": "Key Finding",
+  "label_market_size": "Market Size (2025)",
+  "label_growth_rate": "CAGR",
+  "label_key_players": "Active Players",
+  "label_forecast_year": "Forecast Horizon",
+
+  "section_executive_summary": "Executive Summary",
+  "section_market_overview": "Market Overview",
+  "section_detailed_analysis": "Detailed Analysis",
+  "section_future_outlook": "Future Outlook",
+  "section_disclaimer": "Disclaimer",
+
+  "executive_summary_lead": "Japan's cloud infrastructure market is entering a phase of rapid expansion heading into 2026, driven by surging demand from AI and generative AI workloads. This report provides a multifaceted analysis of market structure, competitive dynamics, and key growth drivers, offering strategic implications to support executive decision-making.",
+
+  "key_finding_1": "Market size reached ¥2.4 trillion in 2025, up 18% year-over-year. Annual growth of 15–17% is projected through 2030.",
+  "key_finding_2": "Generative AI workloads now account for ~31% of total spending. Demand for GPU cloud services tripled year-over-year.",
+  "key_finding_3": "Domestic cloud vendors are gaining share in government and financial sectors, driven by data sovereignty and security concerns.",
+  "key_finding_4": "68% of Japanese enterprises now employ multi-cloud strategies, reflecting heightened awareness of vendor concentration risk.",
+
+  "kpi_market_size": "¥2.4T",
+  "kpi_growth_rate": "+16.8%",
+  "kpi_players": "47",
+  "kpi_forecast_year": "2030",
+
+  "subsection_market_background": "Market Background",
+  "market_background_body": "Accelerating DX initiatives and cost optimization needs among Japanese enterprises are driving on-premises to cloud migration at a pace 1.4× faster than previous cycles. Adoption of serverless and container-native architectures is rising, fueled by demands for IT agility and developer productivity.",
+
+  "subsection_competitive_landscape": "Competitive Landscape",
+  "competitive_landscape_body": "The domestic market remains dominated by the global top three (Companies A, B, and C), while domestic vendors are steadily gaining ground through regulatory compliance capabilities and localized support. Price competition has intensified, but differentiation through value-added services—security, AI integration, and managed operations—has become the primary battleground.",
+
+  "table_col_company": "Company",
+  "table_col_share": "Market Share",
+  "table_col_revenue": "Est. Revenue",
+  "table_col_yoy": "YoY Growth",
+  "table_row1_company": "Company A (Global)",
+  "table_row1_share": "34.2%",
+  "table_row1_revenue": "¥820B",
+  "table_row1_yoy": "+22.1%",
+  "table_row2_company": "Company B (Global)",
+  "table_row2_share": "28.7%",
+  "table_row2_revenue": "¥688B",
+  "table_row2_yoy": "+19.4%",
+  "table_row3_company": "Company C (Global)",
+  "table_row3_share": "15.1%",
+  "table_row3_revenue": "¥362B",
+  "table_row3_yoy": "+14.7%",
+  "table_row4_company": "Company D (Domestic)",
+  "table_row4_share": "11.3%",
+  "table_row4_revenue": "¥271B",
+  "table_row4_yoy": "+31.5%",
+
+  "subsection_analysis_1": "Demand Driver Analysis",
+  "analysis_1_body": "Generative AI and LLM workloads require GPU resources at orders of magnitude greater than traditional analytics, making them a high-value, high-retention revenue source for cloud providers. The transition from enterprise prototypes to production deployments accelerated in H2 2025, establishing continued capacity investment as a structural growth factor.",
+  "analysis_1_callout": "\"Multiple analysts estimate that cloud spending on generative AI infrastructure will exceed 40% of the total domestic market by 2026 and beyond.\"",
+
+  "subsection_analysis_2": "Regulatory & Compliance Trends",
+  "analysis_2_body": "Amendments to Japan's Act on the Protection of Personal Information (APPI) and tightening data localization requirements in financial and healthcare sectors are reshaping public cloud adoption patterns. The following regulatory developments are structurally influencing the market.",
+  "analysis_2_bullet_1": "Tightened restrictions on cross-border data transfers under amended APPI Article 24",
+  "analysis_2_bullet_2": "2025 revision of FSA cloud security standards with mandatory third-party audit requirements",
+  "analysis_2_bullet_3": "Full enforcement of the Medical Information System Safety Management Guidelines v6.0",
+  "analysis_2_bullet_4": "Continued preferential procurement of ISMAP-registered cloud services by government agencies",
+
+  "subsection_analysis_3": "Technology Trends",
+  "analysis_3_body": "Cloud-edge cooperative architectures are entering mainstream adoption. Accelerating 5G commercial rollouts and automation investments in manufacturing and logistics are amplifying demand for low-latency processing. Edge-related cloud services are projected to reach 3.2× their current scale by 2027.",
+
+  "future_outlook_intro": "Over the next five years, Japan's cloud infrastructure market will remain in a sustained high-growth phase. AI capabilities, data sovereignty compliance, and green IT will emerge as the primary competitive dimensions, accelerating market consolidation.",
+
+  "subsection_short_term": "Short Term (2026–2027)",
+  "short_term_body": "Investment in generative AI infrastructure will continue to expand, with GPU cluster provisioning capacity becoming a key differentiator. The proliferation of cost optimization tools and FinOps practices will improve spending efficiency for enterprise customers, and ROI visibility will increasingly influence procurement decisions.",
+
+  "subsection_mid_term": "Medium Term (2028–2030)",
+  "mid_term_body": "Commercialization of quantum computing cloud services is expected to begin in select sectors. In parallel, green cloud services powered by 100% renewable energy will be incorporated into procurement criteria by a growing number of enterprises, shifting supplier evaluation frameworks.",
+
+  "subsection_risks": "Key Risk Factors",
+  "risks_intro": "The primary downside risks to the growth scenario are as follows.",
+  "risk_1": "Supply chain disruption from geopolitical risk (semiconductor and GPU supply constraints)",
+  "risk_2": "Usage restrictions on specific cloud services due to regulatory tightening (mandatory data localization)",
+  "risk_3": "Erosion of market confidence and large-scale outage risk from cybersecurity incidents",
+
+  "disclaimer_paragraph_1": "The information contained in this report is based on sources believed to be reliable at the time of preparation; however, no warranty is made as to its accuracy, completeness, or currency. This report is intended for informational purposes only and does not constitute investment, legal, tax, financial, or other professional advice.",
+  "disclaimer_paragraph_2": "Forecasts, projections, and estimates included in this report are based on assumptions current at the time of preparation. Actual results may differ materially due to numerous factors. The organization accepts no liability for any loss or damage arising from reliance on this report or its contents.",
+  "disclaimer_paragraph_3": "The copyright in this report belongs to the organization. Reproduction, redistribution, or transmission of all or any part of this report without written permission is strictly prohibited. For inquiries regarding this report, please contact the relevant department of the organization. Copyright © 2026 YOUR ORGANIZATION. All rights reserved."
+}

@@ -1,0 +1,97 @@
+{
+  "language": "ja",
+  "report_title": "国内クラウドインフラ市場\n調査レポート 2026",
+  "report_title_short": "国内クラウドインフラ市場調査 2026",
+  "report_subtitle": "主要プレイヤー動向・成長予測・戦略的示唆",
+  "report_category": "Market Research Report",
+  "report_date": "2026年4月3日",
+  "report_author": "調査部　リサーチチーム",
+  "report_version": "Version 1.0",
+  "organization_name": "YOUR ORGANIZATION",
+
+  "label_date": "発行日",
+  "label_author": "作成者",
+  "label_version": "バージョン",
+  "label_key_finding": "主要発見事項",
+  "label_market_size": "市場規模（2025年）",
+  "label_growth_rate": "年間成長率（CAGR）",
+  "label_key_players": "主要プレイヤー数",
+  "label_forecast_year": "予測年度",
+
+  "section_executive_summary": "エグゼクティブサマリー",
+  "section_market_overview": "市場概況",
+  "section_detailed_analysis": "詳細分析",
+  "section_future_outlook": "今後の展望",
+  "section_disclaimer": "免責事項",
+
+  "executive_summary_lead": "国内クラウドインフラ市場は2026年に向けて急速な拡大局面を迎えており、AI・生成AIワークロードの増加が需要を牽引している。本レポートでは市場構造・競合動向・今後の成長ドライバーを多角的に分析し、経営判断に資する戦略的示唆を提供する。",
+
+  "key_finding_1": "市場規模は2025年に2.4兆円に達し、前年比18%増を記録。2030年まで年率15〜17%成長が続く見込み。",
+  "key_finding_2": "生成AI関連ワークロードが全体の約31%を占め、GPUクラウドサービスへの需要が前年比で3倍超に急増。",
+  "key_finding_3": "国産クラウドベンダーが政府・金融セクターでシェアを拡大。セキュリティ・データ主権への関心が背景にある。",
+  "key_finding_4": "マルチクラウド戦略を採用する国内企業は全体の68%に上昇し、ベンダー依存リスクへの意識が高まっている。",
+
+  "kpi_market_size": "2.4兆円",
+  "kpi_growth_rate": "+16.8%",
+  "kpi_players": "47社",
+  "kpi_forecast_year": "2030年",
+
+  "subsection_market_background": "市場成長の背景",
+  "market_background_body": "国内企業のDX推進加速とコスト最適化ニーズが相まって、オンプレミスからクラウドへの移行が従来比1.4倍のペースで進んでいる。特にサーバーレスおよびコンテナ基盤の採用率が上昇しており、IT部門のアジリティ向上への要求が市場拡大を後押ししている。",
+
+  "subsection_competitive_landscape": "競合環境",
+  "competitive_landscape_body": "国内市場はグローバル3強（A社・B社・C社）が上位シェアを維持しつつも、国産ベンダーが規制対応・ローカルサポートを武器に存在感を高めている。価格競争は激化しているものの、付加価値サービス（セキュリティ・AI統合・マネージドサービス）での差別化が主戦場となっている。",
+
+  "table_col_company": "社名",
+  "table_col_share": "市場シェア",
+  "table_col_revenue": "売上高（推計）",
+  "table_col_yoy": "前年比",
+  "table_row1_company": "A社（グローバル）",
+  "table_row1_share": "34.2%",
+  "table_row1_revenue": "8,200億円",
+  "table_row1_yoy": "+22.1%",
+  "table_row2_company": "B社（グローバル）",
+  "table_row2_share": "28.7%",
+  "table_row2_revenue": "6,880億円",
+  "table_row2_yoy": "+19.4%",
+  "table_row3_company": "C社（グローバル）",
+  "table_row3_share": "15.1%",
+  "table_row3_revenue": "3,620億円",
+  "table_row3_yoy": "+14.7%",
+  "table_row4_company": "D社（国産）",
+  "table_row4_share": "11.3%",
+  "table_row4_revenue": "2,710億円",
+  "table_row4_yoy": "+31.5%",
+
+  "subsection_analysis_1": "需要ドライバー分析",
+  "analysis_1_body": "生成AIおよびLLMワークロードは、従来の分析処理と比較してGPUリソース要求が桁違いに高く、クラウド事業者にとって高単価・高粘着性の需要源となっている。企業のプロトタイプから本番移行が2025年後半に加速しており、継続的なキャパシティ投資が市場成長の構造的要因となっている。",
+  "analysis_1_callout": "「2026年以降、生成AIインフラ向けクラウド支出が国内市場全体の40%以上を占めるとの試算が複数のアナリストから示されている。」",
+
+  "subsection_analysis_2": "規制・コンプライアンス動向",
+  "analysis_2_body": "個人情報保護法改正・金融・医療分野のデータローカリゼーション要件強化が、パブリッククラウド採用パターンに変化をもたらしている。以下の規制動向が市場構造に影響を与えている。",
+  "analysis_2_bullet_1": "改正個人情報保護法第24条に基づく越境データ移転への制限強化",
+  "analysis_2_bullet_2": "金融庁クラウド安全管理基準の2025年改訂と第三者監査義務化",
+  "analysis_2_bullet_3": "医療情報システム安全管理ガイドライン第6.0版の完全施行",
+  "analysis_2_bullet_4": "政府機関向けISMAP登録クラウドサービス優先調達の継続",
+
+  "subsection_analysis_3": "テクノロジートレンド",
+  "analysis_3_body": "エッジコンピューティングとクラウドの連携（クラウド・エッジ協調アーキテクチャ）が普及期に入りつつある。5G商用展開の加速と製造業・物流業の自動化投資が、低遅延処理需要を増大させており、2027年にはエッジ関連クラウドサービスが現在の3.2倍の規模に達すると試算される。",
+
+  "future_outlook_intro": "今後5年間、国内クラウドインフラ市場は持続的な高成長フェーズにある。AI・データ主権・グリーンIT対応が主要な競争軸となり、事業者の選別が進む見通しである。",
+
+  "subsection_short_term": "短期（2026〜2027年）",
+  "short_term_body": "生成AIインフラ整備への投資が継続的に拡大し、GPUクラスター提供能力が差別化要素になる。コスト最適化ツールおよびFinOps普及がユーザー企業の支出効率改善を促進し、クラウドのROI可視化が購買意思決定に影響を与える。",
+
+  "subsection_mid_term": "中期（2028〜2030年）",
+  "mid_term_body": "量子コンピューティング関連クラウドサービスの商業化が一部セクターで始まる見通し。また、カーボンニュートラルへの対応として、再生可能エネルギー100%のグリーンクラウドが調達基準に加わる企業が増加し、サプライヤー評価軸が変化する。",
+
+  "subsection_risks": "主要リスク要因",
+  "risks_intro": "成長シナリオに対する主要なダウンサイドリスクとして以下が挙げられる。",
+  "risk_1": "地政学リスクに起因するサプライチェーン断絶（半導体・GPU供給制約）",
+  "risk_2": "規制強化による特定クラウドサービスの利用制限（データローカリゼーション義務化）",
+  "risk_3": "サイバーセキュリティインシデントによる市場信頼性低下および大規模障害リスク",
+
+  "disclaimer_paragraph_1": "本レポートに記載された情報は、作成時点において信頼できると判断した情報源に基づいていますが、その正確性・完全性・最新性を保証するものではありません。本レポートは情報提供のみを目的としており、投資・法律・税務・財務・その他の専門的アドバイスを提供するものではありません。",
+  "disclaimer_paragraph_2": "本レポートに含まれる予測・見通し・推計は、作成時点の仮定に基づくものであり、実際の結果は多くの要因により異なる場合があります。当組織は本レポートの利用またはその内容への依存から生じる損失・損害について、いかなる責任も負いません。",
+  "disclaimer_paragraph_3": "本レポートの著作権は当組織に帰属します。書面による許可なく、本レポートの全部または一部を複製・転載・配布することを禁止します。本レポートに関するお問い合わせは、当組織の担当部署までご連絡ください。Copyright © 2026 YOUR ORGANIZATION. All rights reserved."
+}

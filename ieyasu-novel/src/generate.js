@@ -107,9 +107,6 @@ export async function generate(plot) {
     }
   }
 
-  // 末尾に免責事項を付与
-  novelText += '\n\n※本作はAI三成の視点によるフィクションです。';
-
   // ターミナルに出力
   console.log('\n' + '─'.repeat(50));
   console.log('【生成結果】');

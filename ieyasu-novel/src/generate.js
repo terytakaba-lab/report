@@ -1,8 +1,16 @@
 import Anthropic from '@anthropic-ai/sdk';
 import 'dotenv/config';
+import fetch from 'node-fetch';
+import { HttpsProxyAgent } from 'https-proxy-agent';
 import { SYSTEM_PROMPT } from './prompt.js';
 
-const client = new Anthropic();
+// Node.js 22 の native fetch は HTTPS_PROXY を自動で読まないため、
+// https-proxy-agent + node-fetch をカスタム fetch として SDK に渡す
+const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY;
+const agent = proxyUrl ? new HttpsProxyAgent(proxyUrl) : undefined;
+const proxyFetch = (url, init) => fetch(url, { ...init, agent });
+
+const client = new Anthropic({ fetch: proxyFetch });
 
 async function generateStep1(plot) {
   const prompt = `以下のplotに基づいて、小説執筆のための事前分析を行ってください。

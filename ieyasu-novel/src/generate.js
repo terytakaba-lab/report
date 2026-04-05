@@ -2,6 +2,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import 'dotenv/config';
 import fetch from 'node-fetch';
 import { HttpsProxyAgent } from 'https-proxy-agent';
+import { mkdirSync, writeFileSync } from 'fs';
 import { SYSTEM_PROMPT } from './prompt.js';
 
 // Node.js 22 の native fetch は HTTPS_PROXY を自動で読まないため、
@@ -179,4 +180,12 @@ export async function generate(plot) {
   console.log('─'.repeat(50) + '\n');
   console.log(novelText);
   console.log('\n' + '─'.repeat(50));
+
+  // ファイルに保存
+  const outputDir = new URL('../output', import.meta.url).pathname;
+  mkdirSync(outputDir, { recursive: true });
+  const fileName = `ep${String(plot.episode).padStart(2, '0')}_${plot.title}.txt`;
+  const fileContent = `# 第${plot.episode}話「${plot.title}」\n\n${novelText}`;
+  writeFileSync(`${outputDir}/${fileName}`, fileContent, 'utf-8');
+  console.log(`保存: output/${fileName}`);
 }

@@ -50,9 +50,9 @@ AI三成の思考回路がどのようなデータをどう処理して、この
   return textBlock ? textBlock.text : '';
 }
 
-async function generateNovel(plot, step1Output, attempt) {
+async function generateNovel(plot, step1Output, attempt, prevCharCount = 0) {
   const retryNote = attempt > 0
-    ? `\n【重要】前回の出力が4,000字に達しませんでした。今回は必ず4,000字以上の本文を出力してください。場面描写、心理描写、対話の間を丁寧に膨らませてください。\n`
+    ? `\n【重要】前回の出力が${prevCharCount.toLocaleString()}字でした。各層をより詳細に描写して4,000字以上にしてください。\n`
     : '';
 
   const userPrompt = `${retryNote}【Step1分析結果】
@@ -68,11 +68,12 @@ ${step1Output}
 - tanakaPhase: ${plot.tanakaPhase}
 
 上記の分析を踏まえ、AI三成の視点による小説本文を執筆してください。
-必ず4,000字以上6,000字以内で仕上げてください。`;
+必ず4,000字以上6,000字以内で書くこと。
+短くなる場合は各層（史実層・分析層・推論層・感情層）をそれぞれ800字以上で描写すること。`;
 
   const response = await client.messages.create({
     model: 'claude-sonnet-4-6',
-    max_tokens: 8000,
+    max_tokens: 6000,
     system: SYSTEM_PROMPT,
     messages: [{ role: 'user', content: userPrompt }],
   });
@@ -95,6 +96,7 @@ export async function generate(plot) {
   const MAX_RETRIES = 2;
   let novelText = '';
 
+  let prevCharCount = 0;
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
     if (attempt === 0) {
       console.log('[Step2] 本文生成 (Claude Sonnet 4.6)...');
@@ -102,8 +104,9 @@ export async function generate(plot) {
       console.log(`[Step2] 再生成中 (${attempt}/${MAX_RETRIES})...`);
     }
 
-    novelText = await generateNovel(plot, step1Output, attempt);
+    novelText = await generateNovel(plot, step1Output, attempt, prevCharCount);
     const charCount = novelText.length;
+    prevCharCount = charCount;
     console.log(`生成字数: ${charCount.toLocaleString()} 字`);
 
     if (charCount >= 4000) {

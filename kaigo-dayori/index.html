@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>介護だより - 家族への報告文ジェネレーター</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">🌿</div>
+  <h1>介護だより</h1>
+  <p class="tagline">ご家族への報告文を、やさしい言葉で</p>
+  <div class="usage-bar">
+    <span>今月の使用回数</span>
+    <div class="usage-dots" id="usageDots"></div>
+    <span id="usageCount">0 / 10</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- 状態チップ -->
+  <div class="section">
+    <div class="section-label">今日の様子（複数選択可）</div>
+    <div class="chips" id="statusChips">
+      <div class="chip" data-value="食欲あり">🍚 食欲あり</div>
+      <div class="chip" data-value="食欲が落ちている">🍽 食欲が落ちている</div>
+      <div class="chip" data-value="よく眠れている">😴 よく眠れている</div>
+      <div class="chip" data-value="夜間に目が覚める">🌙 夜間に目が覚める</div>
+      <div class="chip" data-value="表情が明るい">😊 表情が明るい</div>
+      <div class="chip" data-value="少し元気がない">😔 少し元気がない</div>
+      <div class="chip" data-value="体調は安定している">💚 体調は安定</div>
+      <div class="chip" data-value="軽い風邪気味">🤧 風邪気味</div>
+      <div class="chip" data-value="リハビリを頑張っている">💪 リハビリ頑張っている</div>
+      <div class="chip" data-value="散歩を楽しんでいる">🚶 散歩を楽しんだ</div>
+      <div class="chip" data-value="会話が増えた">💬 会話が増えた</div>
+      <div class="chip" data-value="趣味の時間を楽しんだ">🎵 趣味を楽しんだ</div>
+    </div>
+  </div>
+
+  <!-- 自由入力 -->
+  <div class="section">
+    <div class="section-label">伝えたいこと（任意）</div>
+    <textarea id="freeText" placeholder="例：先週は少し発熱がありましたが、今週は回復しました。笑顔も戻ってきています。"></textarea>
+  </div>
+
+  <!-- トーン -->
+  <div class="section">
+    <div class="section-label">文章のトーン</div>
+    <div class="tone-options">
+      <div class="tone-btn active" data-tone="やさしく温かく">
+        <span class="tone-emoji">🌸</span>
+        <span class="tone-label">温かく</span>
+      </div>
+      <div class="tone-btn" data-tone="丁寧にフォーマルに">
+        <span class="tone-emoji">📋</span>
+        <span class="tone-label">丁寧に</span>
+      </div>
+      <div class="tone-btn" data-tone="簡潔にシンプルに">
+        <span class="tone-emoji">✏️</span>
+        <span class="tone-label">簡潔に</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 生成ボタン -->
+  <button class="generate-btn" id="generateBtn" onclick="generate()">
+    報告文を生成する
+  </button>
+
+  <div class="error-msg" id="errorMsg"></div>
+
+  <!-- ローディング -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    やさしい言葉を紡いでいます…
+  </div>
+
+  <!-- 結果 -->
+  <div class="result-area" id="resultArea">
+    <div class="result-card">
+      <div class="result-text" id="resultText"></div>
+      <div class="result-actions">
+        <button class="action-btn" onclick="regenerate()">🔄 書き直す</button>
+        <button class="action-btn primary" onclick="copyText()">📋 コピーする</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 履歴 -->
+  <div class="history-area" id="historyArea">
+    <div class="section-label">最近の履歴</div>
+    <div id="historyList"></div>
+  </div>
+
+  <!-- プレミアムバナー -->
+  <div class="premium-banner" id="premiumBanner">
+    <h3>✨ 月10回を超えました</h3>
+    <p>プレミアムプランで無制限に使えます。<br>月額480円〜、いつでもキャンセル可能。</p>
+    <button class="premium-btn">プレミアムを始める</button>
+  </div>
+
+</main>
+
+<footer>
+  個人情報は一切保存されません。入力内容はAI生成後に破棄されます。
+</footer>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

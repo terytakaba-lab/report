@@ -81,6 +81,7 @@ ${step1Output}
 
 合計4,000字以上6,000字以内で仕上げること。
 セクションヘッダーは一切出力しないこと。
+冒頭にタイトル・話数・見出しを書かないこと。本文から直接始めること。
 自然な段落の流れで書くこと。
 
 【小説としての品質ルール】
@@ -181,11 +182,14 @@ export async function generate(plot) {
   console.log(novelText);
   console.log('\n' + '─'.repeat(50));
 
-  // ファイルに保存
+  // ファイルに保存（免責事項・末尾区切り線をトリム）
+  const trimmedText = novelText
+    .replace(/\n---\n[\s\S]*$/, '')  // --- 以降の免責事項を除去
+    .trimEnd();
   const outputDir = new URL('../output', import.meta.url).pathname;
   mkdirSync(outputDir, { recursive: true });
   const fileName = `ep${String(plot.episode).padStart(2, '0')}_${plot.title}.txt`;
-  const fileContent = `# 第${plot.episode}話「${plot.title}」\n\n${novelText}`;
+  const fileContent = `# 第${plot.episode}話「${plot.title}」\n\n${trimmedText}`;
   writeFileSync(`${outputDir}/${fileName}`, fileContent, 'utf-8');
   console.log(`保存: output/${fileName}`);
 }

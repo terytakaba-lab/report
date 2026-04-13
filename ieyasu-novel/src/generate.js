@@ -184,7 +184,8 @@ export async function generate(plot) {
 
   // ファイルに保存（免責事項・末尾区切り線をトリム）
   const trimmedText = novelText
-    .replace(/\n---\n[\s\S]*$/, '')  // --- 以降の免責事項を除去
+    .replace(/\n{1,2}---\n[\s\S]*$/, '')      // --- 区切り線以降を除去
+    .replace(/\n{1,2}※本作は[\s\S]*$/, '')   // ※本作は〜の免責事項を除去
     .trimEnd();
   const outputDir = new URL('../output', import.meta.url).pathname;
   mkdirSync(outputDir, { recursive: true });

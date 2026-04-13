@@ -3,6 +3,7 @@ import { generate } from './generate.js';
 const plot = {
   episode: 1,
   title: '従順',
+  narrator: '三成',
   historicalFact: '秀吉死去・五大老五奉行体制発足',
   misreading: '家康は制度に従うと思った',
   blankTheme: 'なぜ家康は従順に見えたのか',

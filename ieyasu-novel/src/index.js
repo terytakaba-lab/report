@@ -1,15 +1,16 @@
 import { generate } from './generate.js';
+import { plots } from './plots.js';
 
-const plot = {
-  episode: 1,
-  title: '従順',
-  narrator: '三成',
-  historicalFact: '秀吉死去・五大老五奉行体制発足',
-  misreading: '家康は制度に従うと思った',
-  blankTheme: 'なぜ家康は従順に見えたのか',
-  aiHighlight: '弔問の場の顔ぶれの不自然さ',
-  tanakaPhase: '無視',
-};
+// 引数で話数を指定: node src/index.js 2
+// 指定なしの場合は1話
+const epArg = parseInt(process.argv[2], 10);
+const episode = Number.isFinite(epArg) ? epArg : 1;
+
+const plot = plots.find((p) => p.episode === episode);
+if (!plot) {
+  console.error(`エラー: episode ${episode} のプロットが見つかりません`);
+  process.exit(1);
+}
 
 generate(plot).catch((err) => {
   console.error('エラーが発生しました:', err.message);
